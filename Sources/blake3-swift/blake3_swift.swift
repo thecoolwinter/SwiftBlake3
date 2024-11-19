@@ -32,6 +32,6 @@ public final class Blake3 {
     }
 
     public func finalizeData() -> Data {
-        return Data(bytes: finalizeBytes())
+        return Data(finalizeBytes())
     }
 }
