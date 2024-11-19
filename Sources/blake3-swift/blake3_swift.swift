@@ -2,7 +2,9 @@ import Foundation
 import blake3_c
 
 public final class Blake3 {
-    private let hasher: blake3_hasher
+    private static let BLAKE3_OUT_LENGTH: Int = Int(BLAKE3_OUT_LEN)
+
+    private var hasher: blake3_hasher
 
     public init() {
         hasher = blake3_hasher()
@@ -14,21 +16,19 @@ public final class Blake3 {
     }
 
     public func update(buffer: [UInt8]) {
-        update(bytes: buffer)
+        buffer.withUnsafeBufferPointer { ptr in
+            update(bytes: UnsafeRawBufferPointer(ptr))
+        }
     }
 
     public func update(data: Data) {
         update(bytes: data.withUnsafeBytes { $0 })
     }
 
-    public func finalizeBytes() -> UnsafeRawBufferPointer {
-        var out = [UInt8](repeating: 0, count: BLAKE3_OUT_LEN)
-        blake3_hasher_finalize(&hasher, &out, BLAKE3_OUT_LEN)
-        return UnsafeRawBufferPointer(start: out, count: BLAKE3_OUT_LEN)
-    }
-
-    public func finalizeBuffer() -> [UInt8] {
-        return finalizeBytes().bindMemory(to: UInt8.self).map { $0 }
+    public func finalizeBytes() -> [UInt8] {
+        var out = [UInt8](repeating: 0, count: Blake3.BLAKE3_OUT_LENGTH)
+        blake3_hasher_finalize(&hasher, &out, Blake3.BLAKE3_OUT_LENGTH)
+        return out
     }
 
     public func finalizeData() -> Data {
