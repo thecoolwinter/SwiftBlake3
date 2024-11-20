@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -18,7 +18,7 @@ let package = Package(
                 .headerSearchPath("./lib/blake3/include")
             ]),
         .target(
-            name: "blake3-swift",
+            name: "BLAKE3",
             dependencies: ["blake3-c"])
     ]
 )
