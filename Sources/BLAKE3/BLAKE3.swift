@@ -66,8 +66,8 @@ public final class BLAKE3 {
     /// print(hash)
     /// ```
     public func finalizeBytes() -> [UInt8] {
-        var out = [UInt8](repeating: 0, count: Blake3.BLAKE3_OUT_LENGTH)
-        blake3_hasher_finalize(&hasher, &out, Blake3.BLAKE3_OUT_LENGTH)
+        var out = [UInt8](repeating: 0, count: BLAKE3.BLAKE3_OUT_LENGTH)
+        blake3_hasher_finalize(&hasher, &out, BLAKE3.BLAKE3_OUT_LENGTH)
         return out
     }
 
