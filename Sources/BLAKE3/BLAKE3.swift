@@ -53,7 +53,7 @@ public final class BLAKE3 {
     /// hasher.update(data: data)
     /// ```
     public func update(data: Data) {
-        update(bytes: data.withUnsafeBytes { $0 })
+        data.withUnsafeBytes { update(bytes: $0 )  }
     }
 
     /// Finalize the hasher and return the hash as a buffer of bytes.
