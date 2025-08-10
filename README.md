@@ -1,7 +1,7 @@
 # SwiftBlake3
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FJoshuaBrest%2Fblake3-swift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/JoshuaBrest/blake3-swift)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FJoshuaBrest%2Fblake3-swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/JoshuaBrest/blake3-swift)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fthecoolwinter%2FSwiftBlake3%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/JoshuaBrest/blake3-swift)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fthecoolwinter%2FSwiftBlake3%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/JoshuaBrest/blake3-swift)
 
 A Swift wrapper for the official C/Rust implementation of BLAKE3.
 
@@ -37,9 +37,9 @@ let keyedHasher = Blake3(key: [UInt8])
 let derivedKeyHasher = Blake3(derivedKey: "Hello World")
 ```
 
-## For WASM
+### A Note For WASM
 
-This package will not use the `swift-crypto` library on WASM platforms to avoid the `Foundation` dependencies.
+This package will not use the `swift-crypto` library on WASM platforms to avoid the `Foundation` and other cryptography library dependencies. It retains the copy-on-write functionality, however.
 
 # Install
 
