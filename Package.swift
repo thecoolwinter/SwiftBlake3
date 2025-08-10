@@ -47,6 +47,7 @@ let package = Package(
             name: "Blake3Tests",
             dependencies: ["Blake3"],
             resources: [.copy("test_vectors.json")]
-        )
+        ),
+        .executableTarget(name: "Benchmarks", dependencies: ["Blake3"]),
     ]
 )
