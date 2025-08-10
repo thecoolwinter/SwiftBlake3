@@ -1,14 +1,16 @@
 //
 //  Blake3Digest.swift
-//  BLAKE3
+//  Blake3
 //
 //  Created by Khan Winter on 8/9/25.
 //
 
+#if canImport(Crypto)
 import Crypto
+#endif
 import blake3_c
 
-public struct Blake3Digest: Digest {
+public struct Blake3Digest {
     public static var byteCount: Int { Int(BLAKE3_OUT_LEN) }
 
     var bytes: (UInt64, UInt64, UInt64, UInt64)
@@ -40,3 +42,7 @@ public struct Blake3Digest: Digest {
         self.withUnsafeBytes { hasher.combine(bytes: $0) }
     }
 }
+
+#if canImport(Crypto)
+extension Blake3Digest: Digest { }
+#endif

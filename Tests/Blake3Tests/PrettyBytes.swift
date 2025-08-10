@@ -1,6 +1,6 @@
 //
 //  PrettyBytes.swift
-//  SwiftBlake3
+//  Blake3Tests
 //
 //  Created by Khan Winter on 8/9/25.
 //

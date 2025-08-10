@@ -1,6 +1,6 @@
 //
 //  DigestContext.swift
-//  BLAKE3
+//  Blake3
 //
 //  Created by Khan Winter on 8/9/25.
 //
